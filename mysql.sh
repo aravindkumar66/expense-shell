@@ -49,7 +49,7 @@ VALIDATE $? "start mysql server"
 mysql mysql.akdevops.site -u root  -pExpenseApp@1 -e 'show datadbases;' &>>$LOG_FILE
 if [ $? -ne 0 ]
 then
-    echo"mysql root password not setup, setting now" &>>$LOG_FILE
+    echo "mysql root password not setup, setting now" &>>$LOG_FILE
     mysql_secure_installation --set-root-pass ExpenseApp@1
     VALIDATE $? "setting up root password"
 else
