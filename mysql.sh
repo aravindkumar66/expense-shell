@@ -46,7 +46,7 @@ VALIDATE $? "mysql enable server"
 systemctl start mysqld &>>$LOG_FILE
 VALIDATE $? "start mysql server"
 
-mysql mysql.akdevops.site -u root  -pExpenseApp@1 -e 'show datadbases;' &>>$LOG_FILE
+mysql -h mysql.akdevops.site -u root  -pExpenseApp@1 -e 'show datadbases;' &>>$LOG_FILE
 if [ $? -ne 0 ]
 then
     echo "mysql root password not setup, setting now" &>>$LOG_FILE
